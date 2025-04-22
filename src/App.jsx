@@ -44,8 +44,8 @@ function App() {
               element={
                 <TextBox
                   Heading="Text-Convertor"
-                  ChangeUpper="ChangeToUpperCase"
-                  ChangeLower="ChangeToLowerCase"
+                  ChangeUpper="UpperCase"
+                  ChangeLower="LowerCase"
                   showAlert={showAlert}
                 />
               }
