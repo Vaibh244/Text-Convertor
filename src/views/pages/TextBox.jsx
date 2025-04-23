@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from "react";
 import IMAGES from "../../assets/images/images";
 import { toast } from "react-hot-toast";
-import AISuggestions from "../../components/header/openAI/AISuggestions";
+import AISuggestions from "./dashboard/AISuggestions";
 
 export default function TextBox(props) {
   const [text, setText] = useState("");
@@ -60,26 +60,8 @@ export default function TextBox(props) {
           className="w-full border-2 border-blue-300 p-5 focus:outline-none focus:ring-1 focus:ring-blue-500 font-serif text-gray-700 dark:bg-gray-800 dark:text-white darl:border-gray-600 dark:focus:ring-blue-500 resize-none"
           rows={6}
         ></textarea>
-
-        {/* <div className="flex flex-row items-center">
-          <button className={buttonStyle} onClick={ChangeTextToUpper}>
-            {props.ChangeUpper}
-          </button>
-          <button className={buttonStyle} onClick={ChangeTextToLower}>
-            {props.ChangeLower}
-          </button>
-          <button className={buttonStyle} onClick={clearText}>
-            Clear Text
-          </button>
-          <button className={buttonStyle} onClick={copyText}>
-            Copy Text{" "}
-          </button>
-          <button className={buttonStyle} onClick={removeSpace}>
-            Remove Extra Space
-          </button>
-        </div>
-          <AISuggestions inputText={text} /> */}
-        <div className="space-y-6">
+        
+        <div className="mt-6">
           {/* Button Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
             <button className={buttonStyle} onClick={ChangeTextToUpper}>
@@ -101,17 +83,8 @@ export default function TextBox(props) {
             <button className={buttonStyle} onClick={removeSpace}>
               Remove Space
             </button>
-{/* 
-            <button className={buttonStyle} onClick={() => getSuggestion("grammar")}>
-              Fix Grammar
-            </button>
-            <button className={buttonStyle} onClick={() => getSuggestion("formal")}>Make Formal</button>
-            <button className={buttonStyle} onClick={() => getSuggestion("informal")}>
-              Make Informal
-            </button>
-            <button className={buttonStyle} onClick={() => getSuggestion("synonyms")}>
-              Get Synonyms
-            </button> */}
+
+        
           </div>
 
           {/* AI Suggestions */}
