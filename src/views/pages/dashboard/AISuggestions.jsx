@@ -4,6 +4,7 @@ import ReactMarkdown from "react-markdown";
 export default function AISuggestions({ inputText }) {
   const [suggestion, setSuggestion] = useState("");
   const [loading, setLoading] = useState(false);
+  const [activeMode, setActiveMode] = useState("");
 
   const buttonStyleAi =
     "btn mr-4 px-4 py-2 bg-green-500 rounded-md text-white font-md hover:bg-green-600 my-4 dark:bg-blue-500 dark:hover:bg-blue-600";
@@ -12,7 +13,7 @@ export default function AISuggestions({ inputText }) {
 
   const getSuggestion = async (mode = "") => {
     if (!inputText) return;
-
+    setActiveMode(mode);
     setLoading(true);
     console.log("Calling API");
 
@@ -83,31 +84,33 @@ export default function AISuggestions({ inputText }) {
           onClick={() => getSuggestion()}
           disabled={loading}
         >
-          {loading ? "Suggesting..." : "Get Suggestion"}
+          {loading && activeMode === "" ? "Suggesting..." : "Get Suggestion"}
+
         </button>
         <button
           className={buttonStyleAi}
           onClick={() => getSuggestion("grammar")}
+          disabled={loading && activeMode === "grammar"}
         >
-          Fix Grammar
+          {loading && activeMode === "grammar" ? "Fixing..." : "Fix Grammar"}
         </button>
         <button
           className={buttonStyleAi}
           onClick={() => getSuggestion("formal")}
         >
-          Make Formal
+          {loading && activeMode === "formal" ? "Making Formal..." : "Make Formal"}
         </button>
         <button
           className={buttonStyleAi}
           onClick={() => getSuggestion("informal")}
         >
-          Make Informal
+          {loading && activeMode === "informal" ? "Making Informal..." : "Make Informal"}
         </button>
         <button
           className={buttonStyleAi}
           onClick={() => getSuggestion("synonyms")}
         >
-          Get Synonyms
+          {loading && activeMode === "synonyms" ? "Getting..." : "Get Synonyms"}
         </button>
       </div>
 

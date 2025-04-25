@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from "react";
-import IMAGES from "../../assets/images/images";
+
 import { toast } from "react-hot-toast";
 import AISuggestions from "./dashboard/AISuggestions";
 

@@ -10,7 +10,7 @@ import {toast, Toaster } from 'react-hot-toast';
 
 
 function App() {
-  const [alert, setAlert] = useState(null); //alert is a obj
+  const [alert, setAlert] = useState(null); 
 
   // const showAlert = (message, type) => {
   //   setAlert({
@@ -34,7 +34,7 @@ function App() {
         />
         {/* <Alert alert={alert} /> */}
 
-        <Toaster position="bottom-center" reverseOrder={false} />
+        <Toaster position="top-center" reverseOrder={false} />
 
         <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white transition-colors duration-300">
           <Routes>
